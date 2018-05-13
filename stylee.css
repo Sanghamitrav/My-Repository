@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.box {
+    flex-wrap: wrap;
+    background-color: color();
+    text-align: center;
+    border-style: groove
+}
