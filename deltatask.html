@@ -18,7 +18,7 @@
             </h1>
         </header>
         <nav>
-            <div>
+            <div onload="add()">
             <input type="image" name="add" src="plus.png" alt="add" width="80" height="80" formaction="#">
             </div>
             <div>
@@ -27,7 +27,7 @@
             </div>
         </nav>
     <main>
-        <form id="info" action="#" method="POST">
+        <div>
             <div>
             <label for="menteename">Mentee Name:</label>
             <input name="menteename" id="menteename" type="text">
@@ -61,6 +61,13 @@
             <div class="slidecontainer">
                     <p>Rating: <span id="rat"></span></p>
                     <input type="range" min="1" max="5" value="3" class="slider" id="myRange">     
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="menteenamesList">
+                    </div>
+                </div>
             </div>
             </aside>
             <div class="button">
