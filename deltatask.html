@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Deep's personal webpage for managing all his mentees, give them ratings, and write comments about their progress">
+        <meta property="og:image" content=" /hyperlinks/gemalto-safenet-protectdb-icon.png">
+        <meta property="og:description" content="Deep's personal webpage for managing all his mentees, give them ratings, and write comments about their progress">
+        <meta property="og:title" content="My Mentees">
+        <meta name="twitter:title" content="My Mentees">
+        <link rel="shortcut icon" href="gemalto-safenet-protectdb-icon.ico" type="image/x-icon">
+        <link rel="allstylesheet" href="deltatask.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <h1>
+                My Mentees
+            </h1>
+        </header>
+        <nav>
+            <div>
+            <input type="image" name="add" src="plus.png" alt="add" width="80" height="80" formaction="#">
+            </div>
+            <div>
+            <label for="search">Search</label>
+            <input type="search" name="search" id="search">
+            </div>
+        </nav>
+    <main>
+        <form id="info" action="#" method="POST">
+            <div>
+            <label for="menteename">Mentee Name:</label>
+            <input name="menteename" id="menteename" type="text">
+            </div>
+            <div>  
+            <label for="dp">Display Picture:</label>
+            <input name="dp" id="dp" type="file" accept="image/*" formaction="#">
+            </div>
+            <div>
+            <label for="menteeurl">Profile:</label>
+            <input name="menteeurl" id="menteeurl" type="url" x-moz-errormessage="Please specify a valid email url">
+            </div>
+            <aside>
+            <div>
+            <p>Rating: <span id="rats"></span></p>    
+            <span class="fa fa-star"></span>
+            <input type="checkbox" checked id="star_1" name="star_1" value="1">
+            <span class="fa fa-star"></span>
+            <input type="checkbox" checked id="star_2" name="star_2" value="2">
+            <span class="fa fa-star"></span>
+            <input type="checkbox" checked id="star_3" name="star_3" value="3">
+            <span class="fa fa-star"></span>
+            <input type="checkbox" checked id="star_4" name="star_4" value="4">
+            <span class="fa fa-star"></span>
+            <input type="checkbox" checked id="star_5" name="star_5" value="5">
+            </div>
+            <div>
+            <label for="comments">Comments:</label>
+            <textarea name="comments" id="comments" rows="20" cols="40"></textarea>
+            </div>
+            <div class="slidecontainer">
+                    <p>Rating: <span id="rat"></span></p>
+                    <input type="range" min="1" max="5" value="3" class="slider" id="myRange">     
+            </div>
+            </aside>
+            <div class="button">
+                <div>
+                        <div class="progress-container">
+                        <div class="progress-bar" id="myBar"></div>
+                </div>
+            </div>    
+            <button type="submit" formtarget="_self" name="submit">Save</button>
+            </div>
+        <div class="box">
+            <input type="image" name="close" src="close-icon.png" alt="close" width="20" height="20" formaction="#" onclick="del()">
+            <input type="image" name="edit" src="edit-icon-png-24.png" alt="edit" width="23" height="23" formaction="#" onclick="edit()">
+        </div>
+        </form>
+        <h2>Accordion</h2>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+    <footer>
+        Copyright @ Deep
+    </footer>
+    <script src="deltatask.js"></script>
+    </body>
+</html>
