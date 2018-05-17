@@ -11,20 +11,39 @@ output.innerHTML = slider.value; // Display the default slider value
 slider.oninput = function() {
     output.innerHTML = this.value;
 }
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        this.classList.toggle("active");
-        this.nextElementSibling.classList.toggle("show");
-  }
-}
 
 var x = document.createElement("INPUT");
 x.setAttribute("type", "image");
 
 var x = document.getElementById("myImage");
+
+function add(){
+    document.createElement("MenteeInputForm").innerHTML += '<div id="MenteeInputForm">'+
+        '<div>'+
+        '<label for="menteename">Mentee Name:</label>'+
+        '<input name="menteename" id="menteename" type="text">'+
+        '</div>'+'<br>'+
+        '<div>'+  
+        '<label for="dp">Display Picture:</label>'+
+        '<input name="dp" id="dp" type="file" accept="image/*" formaction="#">'+
+        '</div>'+'<br>'+
+        '<div>'+
+        '<label for="menteeurl">Profile:</label>'+
+        '<input name="menteeurl" id="menteeurl" type="url" x-moz-errormessage="Please specify a valid email url">'+
+        '</div>'+'<br>'+
+        '<div>'+
+        '<label for="comments">Comments:</label>'+
+        '<textarea name="comments" id="comments" rows="20" cols="40"></textarea>'+
+        '</div>'+'<br>'+
+        '<div class="slidecontainer">'+
+                '<p>Rating: <span id="rat"></span></p>'+
+                '<input type="range" min="1" max="5" value="3" class="slider" id="myRange">'+     
+        '</div>'+'<br>'+'<br>'+
+        '<input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50" id="save">'+
+        '</div>'+
+        '</div>';
+    
+    }
 
 function save(e) {
     var menteename = document.getElementById("menteename").value;
@@ -56,28 +75,27 @@ function save(e) {
        
     add();
         
-    e.preventDefault(); 
+    e.preventDefault();
+    for (var i = 0; i < mentees.length; i++) {
+        var menteename = mentees[i].menteename;
+        var dp = mentees[i].dp;
+        var menteeurl = mentees[i].menteeurl;
+        var comments = mentees[i].comments;
+        var output = mentees[i].output;
+        
+        document.getElementById("menteenamesList").innerHTML += '<li>'+ '<div class="new">'+
+        '<h6>Mentee Name: ' + menteename + '</h6>'+'<br>'+
+        '<h6>Display Picture: '+'<img><span class="pic">' + dp + '</span>'+'<br>'+
+        '<h6>Profile: ' + menteeurl + '</h6>'+'<br>'+
+        '<h6>Comments: ' + comments + '</h6>'+'<br>'+
+        '<h6>Rating: '+ output + '</h6>'+'<br>'+
+        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+id+'\')">'+
+        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+id+'\')">'+
+        '</div>'+'<li>'; 
+      }
 }
 
-function add(){
-for (var i = 0; i < mentees.length; i++) {
-    var menteename = mentees[i].menteename;
-    var dp = mentees[i].dp;
-    var menteeurl = mentees[i].menteeurl;
-    var comments = mentees[i].comments;
-    var output = mentees[i].output;
 
-    document.getElementById("menteenamesList").innerHTML += '<li>'+ '<div class="new">'+
-                              '<h6>Mentee Name: ' + menteename + '</h6>'+'<br>'+
-                              '<h6>Display Picture: '+'<img><span class="pic">' + dp + '</span>'+'<br>'+
-                              '<h6>Profile: ' + menteeurl + '</h6>'+'<br>'+
-                              '<h6>Comments: ' + comments + '</h6>'+'<br>'+
-                              '<h6>Rating: '+ output + '</h6>'+'<br>'+
-                              '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+id+'\')">'+
-                              '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+id+'\')">'+
-                              '</div>'+'<li>';
-  }
-}
 
 
     function edit(id) {
