@@ -1,37 +1,37 @@
 var menteename, dp, menteeurl, comments;
-
+var mentees=[];
 
 var search = document.querySelector("nav");
 function save(){
-    document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
-    function saveIssue(e) {
-        var issueId = chance.guid();
-        var issueDesc = document.getElementById('issueDescInput').value;
-        var issueSeverity = document.getElementById('issueSeverityInput').value;
-        var issueAssignedTo = document.getElementById('issueAssignedToInput').value;
-        var issueStatus = 'Open';
+    document.getElementById('MenteeInputForm').addEventListener('save', saveMentee);
+    function saveMentee(e) {
+        var menteename = chance.guid();
+        var dp = document.getElementById("dp").value;
+        var menteeurl = document.getElementById("menteeurl").value;
+        var comments = document.getElementById("comments").value;
+        var MenteeStatus = "Open";
       
-        var issue = {
-          id: issueId,
-          description: issueDesc,
-          severity: issueSeverity,
-          assignedTo: issueAssignedTo,
-          status: issueStatus
+        var mentee = {
+          MenteeName: menteename,
+          DisPic: dp,
+          MenteeUrl: menteeurl,
+          MenteeComments: comments,
+          status: MenteeStatus
         }
         
-        if (localStorage.getItem('issues') === null) {
-          var issues = [];
-          issues.push(issue);
-          localStorage.setItem('issues', JSON.stringify(issues));
+        if (localStorage.getItem('mentees') === null) {
+          var mentees = [];
+          mentees.push(mentee);
+          localStorage.setItem('mentees', JSON.stringify(mentees));
         } else {
-          var issues = JSON.parse(localStorage.getItem('issues'));
-          issues.push(issue);
-          localStorage.setItem('issues', JSON.stringify(issues));
+          var mentees = JSON.parse(localStorage.getItem('mentees'));
+          mentees.push(mentee);
+          localStorage.setItem('mentees', JSON.stringify(mentees));
         }
         
-        document.getElementById('issueInputForm').reset();
+        document.getElementById('MenteeInputForm').reset();
        
-        fetchIssues();
+        add();
         
         e.preventDefault(); 
       }
@@ -53,66 +53,54 @@ for (var i = 0; i < mentees.length; i++) {
                               '<h6>Profile: ' + menteeurl + '</h6>'+
                               '<h6>Comments: ' + comments + '</h6>'+
                               
-                              '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Edit</a> '+
-                              '<a href="#" class="btn btn-danger" onclick="deleteIssue(\''+id+'\')">Delete</a>'+
+                              '<a href="#" class="btn btn-warning" onclick="setStatusEdit(\''+id+'\')">Edit</a> '+
+                              '<a href="#" class="btn btn-danger" onclick="deleteMentee(\''+id+'\')">Delete</a>'+
                               '</div>';
   }
 }
 
 function edit(){
-    function setStatusClosed (id) {
-        var issues = JSON.parse(localStorage.getItem('issues'));
-        
-        for(var i = 0; i < issues.length; i++) {
-          if (issues[i].id == id) {
-            issues[i].status = "Closed";
+    function setStatusEdit (id) {
+        var menteename = JSON.parse(localStorage.getItem("menteename"));
+        var dp = JSON.parse(localStorage.getItem("dp"));
+        var menteeurl = JSON.parse(localStorage.getItem("menteeurl"));
+        var comments = JSON.parse(localStorage.getItem("comments"));
+        for(var i = 0; i < mentees.length; i++) {
+          if (mentees[i].id == id) {
+            mentees[i].status = "Edit";
           }
         }
           
-        localStorage.setItem('issues', JSON.stringify(issues));
+        localStorage.setItem("mentees", JSON.stringify(mentees));
         
-        fetchIssues();
+        add();
       }
 
 }
 function del(){
-    function deleteIssue (id) {
-        var issues = JSON.parse(localStorage.getItem('issues'));
+    function deleteMentee (id) {
+        var menteename = JSON.parse(localStorage.getItem('menteename'));
+        var dp = JSON.parse(localStorage.getItem("dp"));
+        var menteeurl = JSON.parse(localStorage.getItem("menteeurl"));
+        var comments = JSON.parse(localStorage.getItem("comments"));
+
         
-        for(var i = 0; i < issues.length; i++) {
-          if (issues[i].id == id) {
-            issues.splice(i, 1);
+        for(var i = 0; i < mentees.length; i++) {
+          if (mentees[i].id == id) {
+            mentees.splice(i, 1);
           }
         }
         
-        localStorage.setItem('issues', JSON.stringify(issues));
+        localStorage.setItem("mentees", JSON.stringify(mentees));
         
-        fetchIssues();
+        add();
       }
 
 }
 
-var mentees:[];
 
 
 
-function button(e){
-    e.preventDefault();
-    e.stopPropagation();
-    myFunc=document.getElementById("info");
-    menteename=myFunc["menteename"].value;
-    dp=myFunc["dp"].value;
-    menteeurl=myFunc["menteeurl"].value;
-    comments=myFunc["comments"].value;
-    
-    document.getElementById("menteename").innerHTML += "Mentee Name:" + menteename + "<br>";
-    document.getElementById("dp").innerHTML += "Display Picture:" + dp + "<br>";
-    document.getElementById("menteeurl").innerHTML += "Profile:" + menteeurl + "<br>";
-    return false;
-    
-}
-
-document.getElementById("info").addEventListener("save",button,false);
 
 
 var x = document.createElement("INPUT");

@@ -28,7 +28,7 @@
         </nav>
     <main>
         <div>
-            <div>
+            <div id="MenteeInputForm">
             <label for="menteename">Mentee Name:</label>
             <input name="menteename" id="menteename" type="text">
             </div>
@@ -62,7 +62,6 @@
                     <p>Rating: <span id="rat"></span></p>
                     <input type="range" min="1" max="5" value="3" class="slider" id="myRange">     
             </div>
-            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div id="menteenamesList">
@@ -76,13 +75,12 @@
                         <div class="progress-bar" id="myBar"></div>
                 </div>
             </div>    
-            <input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50">
+            <input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50" id="save">
             </div>
         <div class="box">
             <input type="image" name="close" src="close-icon.png" alt="close" width="20" height="20" formaction="#" onclick="del()">
             <input type="image" name="edit" src="edit-icon-png-24.png" alt="edit" width="23" height="23" formaction="#" onclick="edit()">
         </div>
-        </form>
         <h2>Accordion</h2>
 
 <button class="accordion">Section 1</button>
