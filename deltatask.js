@@ -3,14 +3,7 @@ var mentees=[];
 
 var search = document.querySelector("nav");
 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("rat");
-output.innerHTML = slider.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-    output.innerHTML = this.value;
-}
 
 var x = document.createElement("INPUT");
 x.setAttribute("type", "image");
@@ -42,6 +35,13 @@ function add(){
         '<input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50" id="save">'+
         '</div>'+
         '</div>';
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("rat");
+        output.innerHTML = slider.value; // Display the default slider value
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
     
     }
 
