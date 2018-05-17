@@ -27,8 +27,8 @@
             </div>
         </nav>
     <main>
-        <div>
-            <div id="MenteeInputForm">
+        <div id="MenteeInputForm">
+            <div>
             <label for="menteename">Mentee Name:</label>
             <input name="menteename" id="menteename" type="text">
             </div>
@@ -40,7 +40,6 @@
             <label for="menteeurl">Profile:</label>
             <input name="menteeurl" id="menteeurl" type="url" x-moz-errormessage="Please specify a valid email url">
             </div>
-            <aside>
             <div>
             <p>Rating: <span id="rats"></span></p>    
             <span class="fa fa-star"></span>
@@ -62,13 +61,6 @@
                     <p>Rating: <span id="rat"></span></p>
                     <input type="range" min="1" max="5" value="3" class="slider" id="myRange">     
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="menteenamesList">
-                    </div>
-                </div>
-            </div>
-            </aside>
             <div class="button">
                 <div>
                         <div class="progress-container">
@@ -81,6 +73,14 @@
             <input type="image" name="close" src="close-icon.png" alt="close" width="20" height="20" formaction="#" onclick="del()">
             <input type="image" name="edit" src="edit-icon-png-24.png" alt="edit" width="23" height="23" formaction="#" onclick="edit()">
         </div>
+        <div class="row">
+                <div class="col-lg-12">
+                    <div id="menteenamesList">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
         <h2>Accordion</h2>
 
 <button class="accordion">Section 1</button>
