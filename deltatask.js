@@ -42,7 +42,7 @@ function add(){
         slider.oninput = function() {
             output.innerHTML = this.value;
         }
-    
+    console.log("hello");
     }
 
 function save(e) {
@@ -124,21 +124,3 @@ function save(e) {
         
         add();
       }
-
-
-
-
-
-
-
-
-
-
-var yellowstar = document.getElementsByClassName("fa fa-star");
-var out = document.getElementById("rats");
-out.innerHTML = yellowstar.value;
-
-yellowstar.oninput = function star(){
-    out.innerHTML = this.value;
-}
-
