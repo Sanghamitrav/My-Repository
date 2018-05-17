@@ -11,7 +11,8 @@ x.setAttribute("type", "image");
 var x = document.getElementById("myImage");
 
 function add(){
-    document.createElement("MenteeInputForm").innerHTML += '<div id="MenteeInputForm">'+
+var newpagepart_1 = document.createElement("div");
+    newpagepart_1.innerHTML += '<div id="MenteeInputForm">'+
         '<div>'+
         '<label for="menteename">Mentee Name:</label>'+
         '<input name="menteename" id="menteename" type="text">'+
@@ -27,22 +28,27 @@ function add(){
         '<div>'+
         '<label for="comments">Comments:</label>'+
         '<textarea name="comments" id="comments" rows="20" cols="40"></textarea>'+
-        '</div>'+'<br>'+
-        '<div class="slidecontainer">'+
-                '<p>Rating: <span id="rat"></span></p>'+
-                '<input type="range" min="1" max="5" value="3" class="slider" id="myRange">'+     
-        '</div>'+'<br>'+'<br>'+
+        '</div>'+'<br>'+'<div class="slidecontainer">'+
+        '<p>Rating: <span id="rat"></span></p>'+
+        '<input type="range" min="1" max="5" value="3" class="slider" id="myRange">'+     
+        '</div>'+'<br>'+'<br>';
+var newpagepart_2 = document.createElement("div");
+    newpagepart_2.innerHTML += '<div>'+ 
         '<input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50" id="save">'+
         '</div>'+
         '</div>';
+        document.getElementById("main").appendChild(newpagepart_1);
+        document.getElementById("main").appendChild(newpagepart_2); 
         var slider = document.getElementById("myRange");
         var output = document.getElementById("rat");
+        newpagepart_1.appendChild(slider);
+        newpagepart_1.appendChild(output);
         output.innerHTML = slider.value; // Display the default slider value
         // Update the current slider value (each time you drag the slider handle)
         slider.oninput = function() {
             output.innerHTML = this.value;
+           
         }
-    console.log("hello");
     }
 
 function save(e) {
