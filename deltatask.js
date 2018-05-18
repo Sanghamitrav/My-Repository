@@ -98,44 +98,7 @@ function save(e) {
         '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+id+'\')">'+
         '</div>'+'<li>'; 
       }
-      var newpagepart_1 = document.createElement("div");
-      newpagepart_1.innerHTML += '<div id="MenteeInputForm">'+
-          '<div>'+
-          '<label for="menteename">Mentee Name:</label>'+
-          '<input name="menteename" id="menteename" type="text">'+
-          '</div>'+'<br>'+
-          '<div>'+  
-          '<label for="dp">Display Picture:</label>'+
-          '<input name="dp" id="dp" type="file" accept="image/*" formaction="#">'+
-          '</div>'+'<br>'+
-          '<div>'+
-          '<label for="menteeurl">Profile:</label>'+
-          '<input name="menteeurl" id="menteeurl" type="url" x-moz-errormessage="Please specify a valid email url">'+
-          '</div>'+'<br>'+
-          '<div>'+
-          '<label for="comments">Comments:</label>'+
-          '<textarea name="comments" id="comments" rows="20" cols="40"></textarea>'+
-          '</div>'+'<br>'+'<div class="slidecontainer">'+
-          '<p>Rating: <span id="rat"></span></p>'+
-          '<input type="range" min="1" max="5" value="3" class="slider" id="myRange">'+     
-          '</div>'+'<br>'+'<br>';
-  var newpagepart_2 = document.createElement("div");
-      newpagepart_2.innerHTML += '<div>'+ 
-          '<input onclick="save()" type="image" src="checkmark.png" alt="save" formaction="#" name="save" width="50" height="50" id="save">'+
-          '</div>'+
-          '</div>';
-          document.getElementById("main").appendChild(newpagepart_1);
-          document.getElementById("main").appendChild(newpagepart_2); 
-          var slider = document.getElementById("myRange");
-          var output = document.getElementById("rat");
-          newpagepart_1.appendChild(slider);
-          newpagepart_1.appendChild(output);
-          output.innerHTML = slider.value; // Display the default slider value
-          // Update the current slider value (each time you drag the slider handle)
-          slider.oninput = function() {
-              output.innerHTML = this.value;
-             
-          }
+      
 
     }
 
