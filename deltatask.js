@@ -5,10 +5,6 @@ var search = document.querySelector("nav");
 
 
 
-var x = document.createElement("INPUT");
-x.setAttribute("type", "image");
-
-var x = document.getElementById("myImage");
 
 function add(){
 var newpagepart_1 = document.createElement("div");
@@ -80,7 +76,7 @@ function save(e) {
        
     add();
         
-    e.preventDefault();
+    
     for (var i = 0; i < mentees.length; i++) {
         var menteename = mentees[i].menteename;
         var dp = mentees[i].dp;
@@ -88,22 +84,29 @@ function save(e) {
         var comments = mentees[i].comments;
         var output = mentees[i].output;
         
-        document.getElementById("menteenamesList").innerHTML += '<li>'+ '<div class="new">'+
+        var newpage = document.getElementById("menteenamesList");
+            newpage.innerHTML += '<li>'+ '<div class="new">'+
         '<h6>Mentee Name: ' + menteename + '</h6>'+'<br>'+
-        '<h6>Display Picture: '+'<img><span class="pic">' + dp + '</span>'+'<br>'+
+        '<h6>Display Picture: '+'<img id="myImage><span class="pic">' + dp + '</span>'+'<br>'+
         '<h6>Profile: ' + menteeurl + '</h6>'+'<br>'+
         '<h6>Comments: ' + comments + '</h6>'+'<br>'+
         '<h6>Rating: '+ output + '</h6>'+'<br>'+
-        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+id+'\')">'+
-        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+id+'\')">'+
+        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+menteename+'\', \''+dp+'\', \''+menteeurl+'\', \''+comments+'\', \''+output+'\')">'+
+        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+menteename+'\', \''+dp+'\', \''+menteeurl+'\', \''+comments+'\', \''+output+'\')">'
         '</div>'+'<li>'; 
+        document.getElementById("main").appendChild(newpage);
+        /*var x = document.createElement("INPUT");
+        x.setAttribute("type", "image");
+        var x = document.getElementById("myImage");
+        x.appendChild(newpage);*/
+
       }
       
 
     }
 
 
-    function edit(id) {
+    function edit(menteename, dp, menteeurl, comments, output) {
         var mentees=[];
         for(var i = 0; i < mentees.length; i++) {
           if (mentees[i].id == id) {
@@ -118,7 +121,7 @@ function save(e) {
       }
 
 
-    function del(id) {
+    function del(menteename, dp, menteeurl, comments, output) {
         var mentees=[];
         for(var i = 0; i < mentees.length; i++) {
           if (mentees[i].id == id) {
