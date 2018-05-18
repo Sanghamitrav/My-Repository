@@ -43,6 +43,7 @@ var newpagepart_2 = document.createElement("div");
         // Update the current slider value (each time you drag the slider handle)
         slider.oninput = function() {
             output.innerHTML = this.value;
+        
            
         }
     }
@@ -78,23 +79,24 @@ function save(e) {
         
     
     for (var i = 0; i < mentees.length; i++) {
-        var menteename = mentees[i].menteename;
-        var dp = mentees[i].dp;
-        var menteeurl = mentees[i].menteeurl;
-        var comments = mentees[i].comments;
-        var output = mentees[i].output;
+        mentees[i].menteename;
+        mentees[i].dp;
+        mentees[i].menteeurl;
+        mentees[i].comments;
+        mentees[i].output;
         
         var newpage = document.getElementById("menteenamesList");
             newpage.innerHTML += '<li>'+ '<div class="new">'+
-        '<h6>Mentee Name: ' + menteename + '</h6>'+'<br>'+
-        '<h6>Display Picture: '+'<img id="myImage><span class="pic">' + dp + '</span>'+'<br>'+
-        '<h6>Profile: ' + menteeurl + '</h6>'+'<br>'+
-        '<h6>Comments: ' + comments + '</h6>'+'<br>'+
-        '<h6>Rating: '+ output + '</h6>'+'<br>'+
-        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+menteename+'\', \''+dp+'\', \''+menteeurl+'\', \''+comments+'\', \''+output+'\')">'+
-        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+menteename+'\', \''+dp+'\', \''+menteeurl+'\', \''+comments+'\', \''+output+'\')">'
+        '<h6>Mentee Name: ' + mentees[i].menteename + '</h6>'+'<br>'+
+        '<h6>Display Picture: '+'<img id="myImage><span class="pic">' + mentees[i].dp + '</span>'+'<br>'+
+        '<h6>Profile: ' + mentees[i].menteeurl + '</h6>'+'<br>'+
+        '<h6>Comments: ' + mentees[i].comments + '</h6>'+'<br>'+
+        '<h6>Rating: '+ mentees[i].output + '</h6>'+'<br>'+
+        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+mentees[i].menteename+'\', \''+mentees[i].dp+'\', \''+mentees[i].menteeurl+'\', \''+mentees[i].comments+'\', \''+mentees[i].output+'\')">'+
+        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+mentees[i].menteename+'\', \''+mentees[i].dp+'\', \''+mentees[i].menteeurl+'\', \''+mentees[i].comments+'\', \''+mentees[i].output+'\')">'
         '</div>'+'<li>'; 
         document.getElementById("main").appendChild(newpage);
+        document.localStorage.getItem("mentees").appendChild(newpage);
         /*var x = document.createElement("INPUT");
         x.setAttribute("type", "image");
         var x = document.getElementById("myImage");
@@ -111,7 +113,12 @@ function save(e) {
         for(var i = 0; i < mentees.length; i++) {
           if (mentees[i].id == id) {
             mentees[i].status = "Edit";
-            document.getElementById("MenteeInputForm").value = mentees[i];
+            document.getElementById("MenteeInputForm").value;
+            document.getElementById("menteename").val() = mentees[i];
+            document.getElementById("dp").val() = mentees[i];
+            document.getElementById("menteeurl").val() = mentees[i];
+            document.getElementById("comments").val() = mentees[i];
+            document.getElementById("output").val() = mentees[i];
           } 
         }
           
