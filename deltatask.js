@@ -48,7 +48,7 @@ var newpagepart_2 = document.createElement("div");
         }
     }
 
-function save(e) {
+function save() {
     var mentees=[];
     var menteename = document.getElementById("menteename").value;
     var dp = document.getElementById("dp").value;
@@ -74,29 +74,30 @@ function save(e) {
         mentees.push(mentee);
         localStorage.setItem('mentees', JSON.stringify(mentees));
     }
-       
+    var items = localStorage.getItem("mentees");
+
     add();
         
     
     for (var i = 0; i < mentees.length; i++) {
-        mentees[i].menteename;
-        mentees[i].dp;
-        mentees[i].menteeurl;
-        mentees[i].comments;
-        mentees[i].output;
+        mentees[i].MenteeName;
+        mentees[i].DisPic;
+        mentees[i].MenteeUrl;
+        mentees[i].MenteeComments;
+        mentees[i].Rating;
         
         var newpage = document.getElementById("menteenamesList");
             newpage.innerHTML += '<li>'+ '<div class="new">'+
-        '<h6>Mentee Name: ' + mentees[i].menteename + '</h6>'+'<br>'+
-        '<h6>Display Picture: '+'<img id="myImage><span class="pic">' + mentees[i].dp + '</span>'+'<br>'+
-        '<h6>Profile: ' + mentees[i].menteeurl + '</h6>'+'<br>'+
-        '<h6>Comments: ' + mentees[i].comments + '</h6>'+'<br>'+
-        '<h6>Rating: '+ mentees[i].output + '</h6>'+'<br>'+
-        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+mentees[i].menteename+'\', \''+mentees[i].dp+'\', \''+mentees[i].menteeurl+'\', \''+mentees[i].comments+'\', \''+mentees[i].output+'\')">'+
-        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+mentees[i].menteename+'\', \''+mentees[i].dp+'\', \''+mentees[i].menteeurl+'\', \''+mentees[i].comments+'\', \''+mentees[i].output+'\')">'
+        '<h6>Mentee Name: ' + mentees[i].MenteeName + '</h6>'+'<br>'+
+        '<h6>Display Picture: '+'<img id="myImage><span class="pic">' + mentees[i].DisPic + '</span>'+'<br>'+
+        '<h6>Profile: ' + mentees[i].MenteeUrl + '</h6>'+'<br>'+
+        '<h6>Comments: ' + mentees[i].MenteeComments + '</h6>'+'<br>'+
+        '<h6>Rating: '+ mentees[i].Rating + '</h6>'+'<br>'+
+        '<input type="image" src="close-icon.png" name="close" alt="close" width="20" height="20" formaction="#" onclick="del(\''+mentees[i].MenteeName+'\', \''+mentees[i].DisPic+'\', \''+mentees[i].MenteeUrl+'\', \''+mentees[i].MenteeComments+'\', \''+mentees[i].Rating+'\')">'+
+        '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+mentees[i].MenteeName+'\', \''+mentees[i].DisPic+'\', \''+mentees[i].MenteeUrl+'\', \''+mentees[i].MenteeComments+'\', \''+mentees[i].Rating+'\')">'
         '</div>'+'<li>'; 
         document.getElementById("main").appendChild(newpage);
-        document.localStorage.getItem("mentees").appendChild(newpage);
+        newpage.appendChild(items);
         /*var x = document.createElement("INPUT");
         x.setAttribute("type", "image");
         var x = document.getElementById("myImage");
@@ -139,5 +140,5 @@ function save(e) {
         
         localStorage.setItem("mentees", JSON.stringify(mentees));
         
-        add();
+        save();
       }
