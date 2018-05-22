@@ -1,4 +1,4 @@
-var menteename, dp, menteeurl, comments;
+var menteename, dp, menteeurl, comments, output;
 
 
 var search = document.querySelector("nav");
@@ -74,7 +74,7 @@ function save() {
         mentees.push(mentee);
         localStorage.setItem('mentees', JSON.stringify(mentees));
     }
-    var items = localStorage.getItem("mentees");
+    
 
     add();
         
@@ -97,7 +97,6 @@ function save() {
         '<input type="image" src="edit-icon-png-24.png" name="edit" alt="edit" width="23" height="23" formaction="#" onclick="edit(\''+mentees[i].MenteeName+'\', \''+mentees[i].DisPic+'\', \''+mentees[i].MenteeUrl+'\', \''+mentees[i].MenteeComments+'\', \''+mentees[i].Rating+'\')">'
         '</div>'+'<li>'; 
         document.getElementById("main").appendChild(newpage);
-        newpage.appendChild(items);
         /*var x = document.createElement("INPUT");
         x.setAttribute("type", "image");
         var x = document.getElementById("myImage");
@@ -135,10 +134,12 @@ function save() {
           if (mentees[i].id == id) {
             mentees.splice(i, 1);
             document.getElementById("menteenamesList")=mentees[i].remove();
+            var list = document.getElementById("menteenamesList");
+            list.removeChild(list.childNodes[0]);
           }
         }
         
         localStorage.setItem("mentees", JSON.stringify(mentees));
         
-        save();
+        add();
       }
