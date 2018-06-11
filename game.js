@@ -92,11 +92,13 @@ function rect() {
 function circle() {
     c.beginPath();
     c.clearRect(0, 0, innerWidth, innerHeight);
-    c.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2, false);
+    /*c.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2, false);
     c.strokeStyle = "rgba(250, 125, 0, 1)";
     c.fillStyle = "rgba(250, 125, 0, 1)";
     c.stroke();
-    c.fill();
+    c.fill();*/
+    c.fillStyle = "rgba(250, 125, 0, 1)";
+    c.fillRect(mouse.x, mouse.y, 50, 50);
 
 }
 
