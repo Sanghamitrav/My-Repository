@@ -6,10 +6,7 @@ var mouse = {
 window.addEventListener('mousemove', function(event){
     mouse.x = event.x,
     mouse.y = event.y,
-
-    startGame();
-
-
+    updateGameArea();
     console.log(mouse);
 })
 
@@ -20,6 +17,7 @@ function startGame() {
     myGamePiece = new component(30, 30, "rgba(250, 125, 0, 1)", mouse.x, mouse.y);
     myGameArea.start();
 }
+
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
@@ -98,7 +96,10 @@ function updateGameArea() {
         myObstacles[i].update();
     }
     //myGamePiece.newPos();    
+    myGamePiece.x = mouse.x;
+    myGamePiece.y = mouse.y;   
     myGamePiece.update();
+    console.log("out");
 }
 
 function everyinterval(n) {
